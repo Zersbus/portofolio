@@ -1,0 +1,325 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Lanyard from "@/components/band/App";
+import TextType from "@/components/band/TextType";
+
+type HeroProps = {
+  showApp: boolean;
+};
+
+export default function Hero({ showApp }: HeroProps) {
+  const [startAnim, setStartAnim] = useState(false);
+
+  useEffect(() => {
+    const heroPlayed = sessionStorage.getItem("heroPlayed");
+
+    if (heroPlayed === "true") {
+      const timer = setTimeout(() => setStartAnim(true), 0);
+      return () => clearTimeout(timer);
+    }
+
+    const delay = 3600;
+
+    const textTimer = setTimeout(() => {
+      setStartAnim(true);
+    }, delay);
+
+    const appTimer = setTimeout(() => {
+      sessionStorage.setItem("heroPlayed", "true");
+    }, delay + 1500);
+
+    return () => {
+      clearTimeout(textTimer);
+      clearTimeout(appTimer);
+    };
+  }, []);
+
+  return (
+    <section
+      id="home"
+      className="px-6 md:pl-[120px] md:pr-[60px]"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* APP LAYER */}
+      <div
+        className="lanyard-stage hidden md:block"
+        style={{
+          position: "absolute",
+          top: 0,
+          bottom: 0,
+          left: "50%",
+          width: "50%",
+          zIndex: 40,
+          pointerEvents: showApp ? "auto" : "none",
+        }}
+      >
+        {showApp && (
+          <Lanyard
+            position={[0, 0, 20]}
+            gravity={[0, -40, 0]}
+            frontImage="/assets/foto%20pas%20alif%20jas.png"
+            backImage="/assets/card-back-musyaffa.svg"
+            imageFit="cover"
+            lanyardImage="/assets/lanyard%20(1).png"
+            lanyardWidth={0.65}
+          />
+        )}
+      </div>
+
+      {/* TEXT */}
+      <div
+        className="md:max-w-[600px]"
+        style={{
+          width: "100%",
+          position: "relative",
+          zIndex: 5,
+        }}
+      >
+        {/* LABEL */}
+        <motion.div
+          initial={false}
+          animate={
+            startAnim
+              ? { opacity: 1, y: 0, filter: "blur(0px)" }
+              : { opacity: 0, y: 30, filter: "blur(12px)" }
+          }
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          style={{ marginBottom: 20 }}
+        >
+          <span
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 12,
+              color: "var(--text-muted)",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+            }}
+          >
+            ✦ Available for work
+          </span>
+        </motion.div>
+
+        {/* HEADING */}
+        <div>
+          <motion.h1
+            initial={false}
+            animate={
+              startAnim
+                ? { opacity: 1, scale: 1, y: 0 }
+                : { opacity: 0, scale: 0.85, y: 50 }
+            }
+            transition={{
+              duration: 1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{
+              fontSize: "clamp(32px, 6vw, 62px)",
+              fontWeight: 800,
+              lineHeight: 1.05,
+              color: "var(--text-primary)",
+              letterSpacing: "-0.03em",
+              marginBottom: 0,
+            }}
+            >
+            Web
+          </motion.h1>
+
+          <motion.h1
+            initial={false}
+            animate={
+              startAnim
+                ? { opacity: 1, x: 0, rotate: 0 }
+                : { opacity: 0, x: -80, rotate: -4 }
+            }
+            transition={{
+              duration: 1,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{
+              fontSize: "clamp(32px, 6vw, 62px)",
+              fontWeight: 800,
+              lineHeight: 1.05,
+              color: "var(--text-secondary)",
+              letterSpacing: "-0.03em",
+              marginBottom: 24,
+            }}
+          >
+            Developer
+          </motion.h1>
+        </div>
+
+        {/* STATUS */}
+        <motion.div
+          initial={false}
+          animate={startAnim ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+          style={{ marginBottom: 12 }}
+        >
+          <span
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 15,
+              color: "var(--text-secondary)",
+              letterSpacing: "0.1em",
+            }}
+          >
+                <TextType
+                  text={[
+                    'Junior Programming',
+                    'Creative Mindset',
+                    'Enjoy Coding!',
+                  ]}
+              typingSpeed={75}
+              pauseDuration={1500}
+              showCursor
+              cursorCharacter="_"
+              deletingSpeed={50}
+              cursorBlinkDuration={0.5}
+            />
+          </span>
+        </motion.div>
+
+        {/* DESC */}
+        <motion.div
+          initial={false}
+          animate={
+            startAnim
+              ? { opacity: 1, y: 0, scale: 1 }
+              : { opacity: 0, y: 50, scale: 0.96 }
+          }
+          transition={{ duration: 1, delay: 0.5 }}
+          style={{
+            marginBottom: 28,
+            width: "100%",
+            maxWidth: 460, // batas lebar biar jadi 3 baris
+          }}
+        >
+          <p
+            style={{
+              fontSize: 14,
+              color: "var(--text-secondary)",
+              lineHeight: 1.9,
+              letterSpacing: "0.01em",
+              textWrap: "pretty",
+            }}
+          >
+                Mengubah ide rumit menjadi produk digital yang hidup. Dari logika
+                sistem di belakang layar sampai tampilan piksel di depan layar,
+                semuanya dirancang presisi untuk memberi pengalaman terbaik.
+          </p>
+        </motion.div>
+
+        {/* FOOTER */}
+        <motion.div
+          initial={false}
+          animate={startAnim ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 13,
+              color: "var(--text-muted)",
+            }}
+          >
+                Explore my projects ↓
+          </span>
+
+          <span
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 13,
+              color: "var(--text-muted)",
+            }}
+          >
+                Let&apos;s create something together ↗
+          </span>
+        </motion.div>
+      </div>
+      {/* SCROLL INDICATOR */}
+      <motion.div
+        initial={false}
+        animate={startAnim ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{
+          duration: 0.9,
+          delay: 1.2,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        style={{
+          position: "absolute",
+          bottom: 38,
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 20,
+          pointerEvents: "none",
+        }}
+      >
+        {/* SCROLL INDICATOR */}
+<motion.div
+  initial={false}
+  animate={
+    startAnim
+      ? { opacity: 1, y: 0 }
+      : { opacity: 0, y: 40 }
+  }
+  transition={{
+    duration: 0.9,
+    delay: 1.2,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none w-full flex justify-center"
+>
+  <motion.div
+    animate={{
+      y: [0, 6, 0],
+      opacity: [1, 0.65, 1],
+    }}
+    transition={{
+      duration: 1.4,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    }}
+    className="flex items-center justify-center gap-2"
+  >
+    <span
+      style={{
+        fontFamily: "'DM Mono', monospace",
+        fontSize: 11,
+        letterSpacing: '0.2em',
+        textTransform: 'uppercase',
+        color: 'var(--text-muted)',
+      }}
+    >
+      Scroll
+    </span>
+
+    <span
+      style={{
+        fontSize: 16,
+        color: 'var(--text-secondary)',
+        lineHeight: 1,
+      }}
+    >
+      ↓
+    </span>
+  </motion.div>
+</motion.div>
+      </motion.div>
+    </section>
+  );
+}
