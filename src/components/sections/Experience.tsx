@@ -1,35 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Calendar } from "lucide-react";
+import { ArrowUpRight, Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
-    role: "Magang Umum di Perum Peruri - Pengembangan Aplikasi Perusahaan",
-    company: "Bagian TI",
-    period: "Agustus 2024 - Desember 2025",
+    role: "Founder & Strategist",
+    company: "Astralise Digital Solution",
+    period: "April 2026 - Sekarang",
     highlights: [
-      "Pengembangan Sistem Informasi Manajemen Aset Terintegrasi untuk meningkatkan efisiensi operasional dan akuntabilitas inventaris di lingkungan Peruri.",
-      "Terlibat dalam perencanaan dan pengembangan HMI & MES untuk proyek Smart Factory Uang Logam.",
-      "Terlibat dalam perencanaan dan pengembangan HMI & MES untuk proyek Smart Factory SBU HSS Pita Cukai.",
-      "Terlibat dalam proyek Validasi Barcode yang bertujuan meningkatkan akurasi dan keamanan proses pengiriman serta pengemasan uang kertas.",
-      "Berkontribusi dalam pengembangan aplikasi PERURI Connect dan MONTAIN (Pemantauan Tagihan Pelanggan), termasuk pelaksanaan User Acceptance Testing (UAT), identifikasi masalah, dan koordinasi pengembangan fitur baru.",
-      "Membantu pembuatan Notulensi Rapat (MoM), materi presentasi, video, desain visual untuk berbagai acara, serta pengolahan data menggunakan Excel.",
-      "Mengikuti berbagai seminar, lokakarya, dan kompetisi di bidang Teknologi Informasi, DevOps, Business Intelligence, dan bidang terkait.",
-      "Berpartisipasi aktif dalam rapat dan sesi berbagi bersama tim Pengembangan TI untuk koordinasi proyek dan inovasi teknologi.",
-      "Bertanggung jawab membuat poster untuk kajian rutin hari Senin dan Rabu di Masjid Falatehan Peruri, menyiapkan kebutuhan live streaming, serta mengelola akun media sosial untuk publikasi dan dokumentasi kegiatan.",
-      "Bertanggung jawab membuat formulir survei pada aplikasi Survei Peruri sesuai kebutuhan pengguna serta melakukan transfer pengetahuan terkait penggunaannya.",
+      "Strategi Produk & Analisis Kebutuhan: Mentransformasikan kebutuhan bisnis klien menjadi arsitektur solusi digital yang terukur (scalable).",
+      "Pengembangan Full-Stack & SDLC: Mengelola seluruh siklus hidup pengembangan perangkat lunak (Software Development Life Cycle), mulai dari perancangan basis data, API, hingga antarmuka web dan mobile.",
+      "Desain UI/UX & Berbasis Pengguna: Merancang antarmuka visual yang intuitif dan estetik untuk memastikan pengalaman pengguna (user experience) yang optimal.",
+      "Tata Kelola Proyek & Pemeliharaan Sistem: Mengawasi timeline proyek, mengelola komunikasi dengan klien, serta menjaga keandalan sistem dan pemeliharaan pasca-rilis.",
     ],
   },
   {
-    role: "Bisnis Thrift Online Zersbus.id - Pemilik",
-    company: "Usaha Mandiri",
+    role: "Enterprise Application Development",
+    company: "Perum Peruri",
+    period: "Agustus 2024 - Desember 2025",
+    highlights: [
+      "Berperan dalam pengembangan Sistem Informasi Manajemen Aset Terintegrasi untuk meningkatkan efisiensi operasional dan akuntabilitas inventaris perusahaan.",
+      "Berkontribusi dalam perencanaan dan pengembangan HMI & MES pada proyek Smart Factory Uang Logam serta Smart Factory SBU HSS Pita Cukai.",
+      "Terlibat dalam proyek Barcode Validation untuk meningkatkan akurasi dan keamanan pada proses pengemasan dan pengiriman uang kertas.",
+      "Memberikan layanan IT Support & Helpdesk untuk e-Meterai Peruri, menangani troubleshooting, serta membantu kebutuhan operasional user dan klien.",
+      "Berkontribusi dalam pengembangan aplikasi PERURI Connect dan MONTAIN (Customer Bill Monitoring), mencakup UAT, identifikasi isu, dan koordinasi fitur baru.",
+      "Mengelola pembuatan formulir survei digital pada aplikasi Peruri Survey serta melakukan knowledge transfer terkait penggunaannya.",
+      "Membantu pembuatan Minutes of Meeting (MoM), materi presentasi, desain visual, konten video, serta pengolahan data menggunakan Excel.",
+      "Mengelola kebutuhan publikasi Masjid Falatehan Peruri, meliputi poster kajian rutin, persiapan live streaming, dan pengelolaan akun media sosial.",
+      "Mengikuti berbagai seminar, workshop, dan kompetisi di bidang Teknologi Informasi, DevOps, Business Intelligence, dan domain terkait lainnya.",
+    ],
+  },
+  {
+    role: "Business Owner",
+    company: "Thrift Store Online Zersbus.id",
     period: "Desember 2022 - Maret 2025",
     highlights: [
-      "Mengelola operasional harian toko thrift online, termasuk pengadaan barang, pengelolaan inventaris, dan pengemasan pesanan.",
-      "Bertanggung jawab atas pemasaran dan promosi produk melalui media sosial.",
-      "Menangani layanan pelanggan, termasuk pertanyaan, keluhan, dan pengembalian barang, dengan profesionalisme dan responsivitas.",
-      "Menganalisis data penjualan untuk mengidentifikasi tren dan peluang pasar, serta menyusun strategi guna meningkatkan penjualan dan keuntungan.",
+      "Mengelola operasional harian toko thrift online, mulai dari pencarian produk (sourcing), manajemen inventaris, hingga pengemasan pesanan.",
+      "Bertanggung jawab penuh atas strategi pemasaran, promosi, dan branding produk melalui media sosial.",
+      "Menangani layanan pelanggan secara profesional dan responsif, termasuk pertanyaan, keluhan, dan proses pengembalian barang.",
+      "Menganalisis data penjualan secara berkala untuk mengidentifikasi tren pasar, peluang bisnis, serta merumuskan strategi untuk meningkatkan omzet dan keuntungan.",
     ],
   },
 ];
@@ -38,31 +48,23 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      style={{
-        minHeight: "100vh",
-        padding: "90px 24px 100px",
-      }}
+      className="experience-section"
     >
-      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+      <div className="experience-container">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.8 }}
         >
-          <h2
-            style={{
-              marginTop: 0,
-              fontSize: "clamp(32px, 5vw, 56px)",
-              lineHeight: 1,
-              fontWeight: 800,
-            }}
-          >
-            EXPERIENCE
-          </h2>
+          <div className="experience-heading">
+            <span className="section-eyebrow">CAREER JOURNEY</span>
+            <h2>Experience</h2>
+            <p>Pengalaman yang membentuk cara saya membangun solusi digital.</p>
+          </div>
         </motion.div>
 
-        <div style={{ marginTop: 52, display: "grid", gap: 24 }}>
+        <div className="experience-list">
           {experiences.map((experience, index) => (
             <motion.article
               key={experience.role}
@@ -71,53 +73,28 @@ export default function Experience() {
               viewport={{ once: false, margin: "-60px" }}
               transition={{ duration: 0.8, delay: index * 0.12 }}
               className="experience-item"
-              style={{
-                display: "grid",
-                gap: 30,
-                padding: "28px 0",
-                borderTop: "1px solid var(--border)",
-              }}
             >
-              <div>
-                <div style={{ display: "flex", alignItems: "center", gap: 9, color: "var(--text-primary)" }}>
+              <div className="experience-meta">
+                <div className="experience-role">
                   <Briefcase size={17} />
-                  <h3 style={{ fontSize: 18, lineHeight: 1.35, fontWeight: 700 }}>
-                    {experience.role}
-                  </h3>
+                  <h3>{experience.role}</h3>
                 </div>
-                <p style={{ marginTop: 12, color: "var(--text-secondary)", fontSize: 14 }}>
-                  {experience.company}
-                </p>
-                <p
-                  style={{
-                    marginTop: 18,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    color: "var(--text-muted)",
-                    fontFamily: "'DM Mono', monospace",
-                    fontSize: 12,
-                  }}
-                >
+                <p className="experience-company">{experience.company}</p>
+                <p className="experience-period">
                   <Calendar size={14} />
                   {experience.period}
                 </p>
               </div>
 
-              <ul
-                style={{
-                  paddingLeft: 19,
-                  color: "var(--text-secondary)",
-                  fontSize: 14,
-                  lineHeight: 1.75,
-                }}
-              >
+              <ul className="experience-highlights">
                 {experience.highlights.map((highlight) => (
-                  <li key={highlight} style={{ paddingLeft: 5, marginBottom: 9 }}>
+                  <li key={highlight}>
                     {highlight}
                   </li>
                 ))}
               </ul>
+
+              <ArrowUpRight className="experience-arrow" size={20} aria-hidden="true" />
             </motion.article>
           ))}
         </div>

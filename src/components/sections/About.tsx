@@ -142,10 +142,13 @@ export default function About() {
                 maxWidth: isMobile ? "100%" : "490px",
               }}
             >
-              Web Developer yang berdedikasi membangun aplikasi web modern,
-              responsif, dan terstruktur. Berbekal pengalaman di proyek
-              enterprise dan integrasi sistem, saya selalu berfokus mengubah
-              kebutuhan bisnis menjadi solusi digital yang cepat dan efisien.
+              Lulusan baru di bidang Teknologi Informasi yang adaptif,
+              berintegritas, serta memiliki pengalaman kerja praktis di
+              lingkungan TI perusahaan. Memiliki semangat belajar yang tinggi,
+              ketangguhan profesional, dan kemampuan analisis yang kuat. Siap
+              menghadapi berbagai tantangan di tempat kerja dan berkomitmen
+              penuh untuk memberikan kontribusi positif bagi pertumbuhan
+              perusahaan.
             </motion.p>
 
             {/* QUOTE */}
