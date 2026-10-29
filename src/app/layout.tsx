@@ -4,6 +4,9 @@ import RefreshRedirect from '@/components/RefreshRedirect'
 export const metadata = {
   title: "Musyaffa Alif",
   description: "Portfolio...",
+  icons: {
+    icon: "/assets/favicon.png",
+  },
 };
 
 export default function RootLayout({

@@ -240,6 +240,100 @@ textarea {
   transform: rotate(180deg);
 }
 
+.education-card {
+  max-width: 1080px;
+  margin: 48px auto 0;
+  padding: 26px 30px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+}
+
+.education-card-header,
+.education-card-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.education-card-header {
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.education-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-primary);
+}
+
+.education-card-header h2 {
+  margin-top: 5px;
+  color: var(--text-primary);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.education-period {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.education-card-content {
+  gap: 22px;
+  padding-top: 22px;
+}
+
+.education-logo {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 auto;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.education-card-content h3 {
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.education-program,
+.education-thesis,
+.education-gpa {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.education-program {
+  margin-top: 3px;
+}
+
+.education-thesis {
+  max-width: 760px;
+  margin-top: 10px;
+}
+
+.education-gpa {
+  margin-top: 8px;
+}
+
+.education-gpa strong,
+.education-thesis strong {
+  color: var(--text-primary);
+}
+
 @media (max-width: 767px) {
   .experience-section {
     padding: 80px 20px 90px;
@@ -256,5 +350,27 @@ textarea {
 
   .experience-role h3 {
     font-size: 16px;
+  }
+
+  .education-card {
+    margin-top: 36px;
+    padding: 22px;
+  }
+
+  .education-card-header {
+    align-items: flex-start;
+  }
+
+  .education-period {
+    margin-top: 4px;
+  }
+
+  .education-card-content {
+    gap: 14px;
+  }
+
+  .education-logo {
+    width: 54px;
+    height: 54px;
   }
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
-import { FileText, ArrowUpRight } from "lucide-react";
+import { FileText, ArrowUpRight, GraduationCap } from "lucide-react";
 
 /* ================== ANIMATION ================== */
 
@@ -296,6 +296,46 @@ export default function About() {
             </motion.div>
           )}
         </div>
+
+        <motion.div
+          className="education-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-80px" }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+        >
+          <div className="education-card-header">
+            <div className="education-icon">
+              <GraduationCap size={20} />
+            </div>
+            <div>
+              <span className="section-eyebrow">EDUCATION</span>
+              <h2>Sarjana Teknik Informatika</h2>
+            </div>
+            <span className="education-period">2022 - 2026</span>
+          </div>
+
+          <div className="education-card-content">
+            <img
+              src="/assets/education/bsi-logo.png"
+              alt="Logo Universitas Bina Sarana Informatika"
+              className="education-logo"
+            />
+            <div>
+              <h3>Universitas Bina Sarana Informatika</h3>
+              <p className="education-program">
+                Program Studi Teknologi Informasi
+              </p>
+              <p className="education-thesis">
+                <strong>Skripsi:</strong> Perancangan dan Pengembangan Sistem
+                Informasi Manajemen Aset Tetap Berbasis Web di Perum Peruri
+              </p>
+              <p className="education-gpa">
+                IPK: <strong>3,95 / 4,00</strong>
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
       </div>
     </section>

@@ -170,7 +170,7 @@ export default function ContactForm() {
 
         {/* LINKEDIN */} 
         <motion.a
-          href="https://www.linkedin.com/in/musyaffa-alif-5048b224"
+          href="https://www.linkedin.com/in/musyaffaalif"
           target="_blank"
           rel="noopener noreferrer"
           variants={fieldVariants}
