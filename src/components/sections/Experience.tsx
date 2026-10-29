@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Briefcase, Calendar, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
@@ -46,8 +45,6 @@ const experiences = [
 ];
 
 export default function Experience() {
-  const [expandedExperience, setExpandedExperience] = useState<number | null>(null);
-
   return (
     <section
       id="experience"
@@ -89,49 +86,12 @@ export default function Experience() {
               </div>
 
               <ul className="experience-highlights">
-                {experience.highlights.slice(0, 3).map((highlight) => (
+                {experience.highlights.map((highlight) => (
                   <li key={highlight}>
                     {highlight}
                   </li>
                 ))}
               </ul>
-
-              <AnimatePresence initial={false}>
-                {expandedExperience === index && (
-                  <motion.div
-                    className="experience-detail-panel"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <span className="experience-detail-label">ALL RESPONSIBILITIES</span>
-                    <ul>
-                      {experience.highlights.slice(3).map((highlight) => (
-                        <li key={highlight}>{highlight}</li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              <button
-                type="button"
-                className="experience-details-button"
-                aria-expanded={expandedExperience === index}
-                onClick={() =>
-                  setExpandedExperience(
-                    expandedExperience === index ? null : index,
-                  )
-                }
-              >
-                <span>{expandedExperience === index ? "Tutup detail" : "Lihat semua jobdesk"}</span>
-                <ChevronDown
-                  size={16}
-                  className={expandedExperience === index ? "is-expanded" : ""}
-                  aria-hidden="true"
-                />
-              </button>
             </motion.article>
           ))}
         </div>
