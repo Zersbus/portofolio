@@ -128,14 +128,6 @@ textarea {
   line-height: 0.95;
 }
 
-.experience-heading p {
-  max-width: 420px;
-  margin-top: 20px;
-  color: var(--text-secondary);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
 .experience-list {
   display: grid;
   gap: 18px;
@@ -219,17 +211,33 @@ textarea {
   margin-bottom: 0;
 }
 
-.experience-arrow {
-  position: absolute;
-  top: 28px;
-  right: 24px;
-  color: var(--text-muted);
-  transition: color 0.3s ease, transform 0.3s ease;
+.experience-details-button {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 8px;
+  padding: 8px 0;
+  border: 0;
+  color: var(--text-primary);
+  background: transparent;
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
 }
 
-.experience-item:hover .experience-arrow {
-  color: var(--text-primary);
-  transform: translate(2px, -2px);
+.experience-details-button:hover {
+  color: var(--text-secondary);
+}
+
+.experience-details-button svg {
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.experience-details-button svg.is-expanded {
+  transform: rotate(180deg);
 }
 
 @media (max-width: 767px) {

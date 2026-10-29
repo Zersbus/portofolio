@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Briefcase, Calendar } from "lucide-react";
+import { Briefcase, Calendar, ChevronDown } from "lucide-react";
 
 const experiences = [
   {
@@ -16,7 +17,7 @@ const experiences = [
     ],
   },
   {
-    role: "Enterprise Application Development",
+    role: "Enterprise Application Development Intern",
     company: "Perum Peruri",
     period: "Agustus 2024 - Desember 2025",
     highlights: [
@@ -45,6 +46,8 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const [expandedExperience, setExpandedExperience] = useState<number | null>(null);
+
   return (
     <section
       id="experience"
@@ -60,7 +63,6 @@ export default function Experience() {
           <div className="experience-heading">
             <span className="section-eyebrow">CAREER JOURNEY</span>
             <h2>Experience</h2>
-            <p>Pengalaman yang membentuk cara saya membangun solusi digital.</p>
           </div>
         </motion.div>
 
@@ -87,14 +89,35 @@ export default function Experience() {
               </div>
 
               <ul className="experience-highlights">
-                {experience.highlights.map((highlight) => (
+                {experience.highlights
+                  .slice(
+                    0,
+                    expandedExperience === index ? experience.highlights.length : 2,
+                  )
+                  .map((highlight) => (
                   <li key={highlight}>
                     {highlight}
                   </li>
-                ))}
+                  ))}
               </ul>
 
-              <ArrowUpRight className="experience-arrow" size={20} aria-hidden="true" />
+              <button
+                type="button"
+                className="experience-details-button"
+                aria-expanded={expandedExperience === index}
+                onClick={() =>
+                  setExpandedExperience(
+                    expandedExperience === index ? null : index,
+                  )
+                }
+              >
+                {expandedExperience === index ? "Sembunyikan detail" : "Lihat semua jobdesk"}
+                <ChevronDown
+                  size={16}
+                  className={expandedExperience === index ? "is-expanded" : ""}
+                  aria-hidden="true"
+                />
+              </button>
             </motion.article>
           ))}
         </div>

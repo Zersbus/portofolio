@@ -176,8 +176,8 @@ export default function About() {
                 width: "fit-content",
               }}
             >
-              “Connecting system logic and interface design into valuable web
-              applications.”
+              “Delivering innovative digital experiences through effective
+              technical solutions.”
             </motion.div>
 
             {/* BUTTONS */}
