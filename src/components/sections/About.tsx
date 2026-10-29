@@ -310,7 +310,7 @@ export default function About() {
             </div>
             <div>
               <span className="section-eyebrow">EDUCATION</span>
-              <h2>Sarjana Teknik Informatika</h2>
+              <h2>Universitas Bina Sarana Informatika</h2>
             </div>
             <span className="education-period">2022 - 2026</span>
           </div>
@@ -322,16 +322,14 @@ export default function About() {
               className="education-logo"
             />
             <div>
-              <h3>Universitas Bina Sarana Informatika</h3>
-              <p className="education-program">
-                Program Studi Teknologi Informasi
-              </p>
+              <h3>Sarjana Program Studi Teknologi Informasi</h3>
               <p className="education-thesis">
-                <strong>Skripsi:</strong> Perancangan dan Pengembangan Sistem
-                Informasi Manajemen Aset Tetap Berbasis Web di Perum Peruri
+                <strong>Skripsi:</strong> Rancang Bangun Sistem Informasi
+                Manajemen Aset Berbasis Website Untuk Optimalisasi Pengelolaan
+                Aset Tetap di Perum Peruri
               </p>
               <p className="education-gpa">
-                IPK: <strong>3,95 / 4,00</strong>
+                IPK: <strong>3.95/4.00</strong>
               </p>
             </div>
           </div>

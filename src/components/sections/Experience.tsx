@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Briefcase, Calendar, ChevronDown } from "lucide-react";
 
 const experiences = [
@@ -89,17 +89,31 @@ export default function Experience() {
               </div>
 
               <ul className="experience-highlights">
-                {experience.highlights
-                  .slice(
-                    0,
-                    expandedExperience === index ?                     experience.highlights.length : 3,
-                  )
-                  .map((highlight) => (
+                {experience.highlights.slice(0, 3).map((highlight) => (
                   <li key={highlight}>
                     {highlight}
                   </li>
-                  ))}
+                ))}
               </ul>
+
+              <AnimatePresence initial={false}>
+                {expandedExperience === index && (
+                  <motion.div
+                    className="experience-detail-panel"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <span className="experience-detail-label">ALL RESPONSIBILITIES</span>
+                    <ul>
+                      {experience.highlights.slice(3).map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <button
                 type="button"
@@ -111,7 +125,7 @@ export default function Experience() {
                   )
                 }
               >
-                {expandedExperience === index ? "Sembunyikan detail" : "Lihat semua jobdesk"}
+                <span>{expandedExperience === index ? "Tutup detail" : "Lihat semua jobdesk"}</span>
                 <ChevronDown
                   size={16}
                   className={expandedExperience === index ? "is-expanded" : ""}

@@ -137,8 +137,8 @@ textarea {
 .experience-item {
   position: relative;
   display: grid;
-  gap: 34px;
-  padding: 30px 42px 32px 30px;
+  gap: 24px;
+  padding: 30px;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -211,12 +211,43 @@ textarea {
   margin-bottom: 0;
 }
 
+.experience-detail-panel {
+  overflow: hidden;
+  padding: 20px 20px 8px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.experience-detail-label {
+  color: var(--text-muted);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.experience-detail-panel ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  padding-left: 18px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.experience-detail-panel li {
+  padding-left: 5px;
+}
+
 .experience-details-button {
   display: inline-flex;
   align-items: center;
-  justify-self: start;
+  justify-content: space-between;
+  width: 100%;
   gap: 8px;
-  padding: 8px 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--border);
   border: 0;
   color: var(--text-primary);
   background: transparent;
