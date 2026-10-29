@@ -62,17 +62,17 @@ const localTechStacks = [
 
 export const localProjects = [
   {
-    id: 'local-personal-portfolio',
-    title: 'Personal Portfolio Showcase',
+    id: 'local-astralise-digital-solution',
+    title: 'Profile Company - Astralise Digital Solution',
     description:
-      'Website portfolio personal untuk memperkenalkan profil, pengalaman, keahlian, dan karya melalui pengalaman digital yang modern. Tampilan dirancang dengan nuansa monokrom, tipografi tegas, animasi halus, serta navigasi yang membantu pengunjung memahami perjalanan dan kemampuan saya sebagai web developer.',
-    live_url: null,
+      'Website company profile Astralise Digital Solution, agensi teknologi digital yang membantu bisnis mewujudkan ide menjadi solusi digital. Astralise menyediakan layanan pengembangan aplikasi web, mobile, dan sistem internal secara end-to-end, mulai dari perencanaan hingga operasional harian.',
+    live_url: 'https://www.astralise.my.id/',
     github_url: null,
-    technologies: 'Next.js, TypeScript, Tailwind CSS, Framer Motion, Supabase',
+    technologies: 'React, TypeScript, UI/UX Design, Responsive Web Design',
     key_features:
-      'Responsive portfolio experience, Interactive hero section with 3D lanyard, Dynamic project showcase, Certificate and tech stack sections, Supabase-powered content management, Animated transitions and micro-interactions',
-    image_url: '/assets/projects/personal-portfolio/portfolio-home.png',
-    image_urls: ['/assets/projects/personal-portfolio/portfolio-home.png'],
+      'Company profile website, Digital services showcase, Portfolio presentation, Team and client testimonials, Indonesian and English language switcher, Responsive modern interface',
+    image_url: '/assets/projects/astralise/astralise-home.png',
+    image_urls: ['/assets/projects/astralise/astralise-home.png'],
   },
   {
     id: 'local-caredesk-helpdesk',
@@ -140,6 +140,19 @@ export const localProjects = [
       '/assets/projects/peruri/depreciation.png',
     ],
   },
+  {
+    id: 'local-personal-portfolio',
+    title: 'Personal Portfolio Showcase',
+    description:
+      'Website portfolio personal untuk memperkenalkan profil, pengalaman, keahlian, dan karya melalui pengalaman digital yang modern. Tampilan dirancang dengan nuansa monokrom, tipografi tegas, animasi halus, serta navigasi yang membantu pengunjung memahami perjalanan dan kemampuan saya sebagai web developer.',
+    live_url: null,
+    github_url: null,
+    technologies: 'Next.js, TypeScript, Tailwind CSS, Framer Motion, Supabase',
+    key_features:
+      'Responsive portfolio experience, Interactive hero section with 3D lanyard, Dynamic project showcase, Certificate and tech stack sections, Supabase-powered content management, Animated transitions and micro-interactions',
+    image_url: '/assets/projects/personal-portfolio/portfolio-home.png',
+    image_urls: ['/assets/projects/personal-portfolio/portfolio-home.png'],
+  },
 ]
 
 export const fetchProjects = async () => {
@@ -156,8 +169,8 @@ export const fetchProjects = async () => {
   const localTitles = new Set(localProjects.map((item) => item.title))
 
   return [
-    ...remoteProjects,
-    ...localProjects.filter((item) => !localTitles.has(item.title)),
+    ...localProjects,
+    ...remoteProjects.filter((item) => !localTitles.has(item.title)),
   ]
 }
 

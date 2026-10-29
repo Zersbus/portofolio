@@ -92,7 +92,7 @@ export default function Experience() {
                 {experience.highlights
                   .slice(
                     0,
-                    expandedExperience === index ? experience.highlights.length : 2,
+                    expandedExperience === index ?                     experience.highlights.length : 3,
                   )
                   .map((highlight) => (
                   <li key={highlight}>
