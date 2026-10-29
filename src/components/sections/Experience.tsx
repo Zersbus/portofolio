@@ -16,8 +16,8 @@ const experiences = [
     ],
   },
   {
-    role: "Enterprise Application Development Intern",
-    company: "Perum Peruri",
+    role: "Internship Enterprise Application Development",
+    company: "PERURI ( Percetakan Uang Republik Indonesia )",
     period: "Agustus 2024 - Desember 2025",
     highlights: [
       "Berperan dalam pengembangan Sistem Informasi Manajemen Aset Terintegrasi untuk meningkatkan efisiensi operasional dan akuntabilitas inventaris perusahaan.",
